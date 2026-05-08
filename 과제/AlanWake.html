@@ -5,14 +5,19 @@
     <title>Alan Wake II</title>
     <link rel="stylesheet" href="css/aw.css" />
     <!-- 8 ~ 13번 chapter-title font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" /> 
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
       rel="stylesheet"
     />
     <!-- 본문용 font -->
-    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
+    />
   </head>
   <body>
     <header class="intro-screen" id="intro">
@@ -91,14 +96,14 @@
       </section>
 
       <!-- Modal 팝업 영역 -->
-      <dialog
+      <div
         class="story-modal"
         id="modal-1"
         aria-modal="true"
         aria-label="Chapter 1 스토리 상세"
       >
-        <a href="#gallery" class="modal-close" aria-label="닫기">&times;</a>
         <div class="modal-inner">
+          <a href="#gallery" class="modal-close" aria-label="닫기">&times;</a>
           <figure class="modal-image-area">
             <img src="./images/chap1.webp" alt="Chapter 1 확대 이미지" />
           </figure>
@@ -108,36 +113,34 @@
             </header>
             <section class="modal-text-body">
               <p>
-                FBI 요원 <strong>사가 앤더슨</strong>은 워싱턴 주 브라이트 폴스
+                FBI 요원 <a href="#char-saga" class="char-link">사가 앤더슨</a>은 워싱턴 주 브라이트 폴스
                 인근 호수에서 발견된 의문의 변사 사건을 조사하기 위해 파견된다.
-                시신 주변에는 현실과 맞지 않는 이상한 흔적들이 남아 있고,
-                사가는 현지 보안관 <strong>팀 브레이커</strong>와 함께 수사에
-                착수한다.
+                시신 주변에는 현실과 맞지 않는 이상한 흔적들이 남아 있고, 사가는
+                현지 보안관 <a href="#char-tim" class="char-link">팀 브레이커</a>와 함께 수사에 착수한다.
               </p>
               <p>
                 한편 어두운 장소(The Dark Place)에 갇혀 13년을 보낸
-                <strong>앨런 웨이크</strong>는 그 공간을 탈출하기 위해
-                자신이 직접 이야기를 써 내려가기 시작한다. 그가 쓰는 글이
-                현실에 영향을 미친다는 사실을 깨닫고, 탈출을 위한 서사를
-                구성해 나간다.
+                <a href="#char-alan" class="char-link">앨런 웨이크</a>는 그 공간을 탈출하기 위해 자신이
+                직접 이야기를 써 내려가기 시작한다. 그가 쓰는 글이 현실에 영향을
+                미친다는 사실을 깨닫고, 탈출을 위한 서사를 구성해 나간다.
               </p>
               <p>
-                두 인물의 시선이 교차하며 브라이트 폴스를 둘러싼 초자연적
-                사건의 실체가 서서히 드러나기 시작한다.
+                두 인물의 시선이 교차하며 브라이트 폴스를 둘러싼 초자연적 사건의
+                실체가 서서히 드러나기 시작한다.
               </p>
             </section>
           </article>
         </div>
-      </dialog>
+      </div>
 
-      <dialog
+      <div
         class="story-modal"
         id="modal-2"
         aria-modal="true"
         aria-label="Chapter 2 스토리 상세"
       >
-        <a href="#gallery" class="modal-close" aria-label="닫기">&times;</a>
         <div class="modal-inner">
+          <a href="#gallery" class="modal-close" aria-label="닫기">&times;</a>
           <figure class="modal-image-area">
             <img src="" alt="Chapter 2 확대 이미지" />
           </figure>
@@ -150,16 +153,16 @@
             </section>
           </article>
         </div>
-      </dialog>
+      </div>
 
-      <dialog
+      <div
         class="story-modal"
         id="modal-3"
         aria-modal="true"
         aria-label="Chapter 3 스토리 상세"
       >
-        <a href="#gallery" class="modal-close" aria-label="닫기">&times;</a>
         <div class="modal-inner">
+          <a href="#gallery" class="modal-close" aria-label="닫기">&times;</a>
           <figure class="modal-image-area">
             <img src="" alt="Chapter 3 확대 이미지" />
           </figure>
@@ -172,16 +175,16 @@
             </section>
           </article>
         </div>
-      </dialog>
+      </div>
 
-      <dialog
+      <div
         class="story-modal"
         id="modal-4"
         aria-modal="true"
         aria-label="Chapter 4 스토리 상세"
       >
-        <a href="#gallery" class="modal-close" aria-label="닫기">&times;</a>
         <div class="modal-inner">
+          <a href="#gallery" class="modal-close" aria-label="닫기">&times;</a>
           <figure class="modal-image-area">
             <img src="" alt="Chapter 4 확대 이미지" />
           </figure>
@@ -194,16 +197,16 @@
             </section>
           </article>
         </div>
-      </dialog>
+      </div>
 
-      <dialog
+      <div
         class="story-modal"
         id="modal-5"
         aria-modal="true"
         aria-label="Chapter 5 스토리 상세"
       >
-        <a href="#gallery" class="modal-close" aria-label="닫기">&times;</a>
         <div class="modal-inner">
+          <a href="#gallery" class="modal-close" aria-label="닫기">&times;</a>
           <figure class="modal-image-area">
             <img src="" alt="Chapter 5 확대 이미지" />
           </figure>
@@ -216,16 +219,16 @@
             </section>
           </article>
         </div>
-      </dialog>
+      </div>
 
-      <dialog
+      <div
         class="story-modal"
         id="modal-6"
         aria-modal="true"
         aria-label="Chapter 6 스토리 상세"
       >
-        <a href="#gallery" class="modal-close" aria-label="닫기">&times;</a>
         <div class="modal-inner">
+          <a href="#gallery" class="modal-close" aria-label="닫기">&times;</a>
           <figure class="modal-image-area">
             <img src="" alt="Chapter 6 확대 이미지" />
           </figure>
@@ -238,7 +241,69 @@
             </section>
           </article>
         </div>
-      </dialog>
+      </div>
     </main>
+
+    <!-- 캐릭터 페이지 -->
+    <div class="characters-page">
+      <a href="#gallery" class="chars-back">← 갤러리로</a>
+
+      <section class="char-section" id="char-saga">
+        <div class="char-parallax" style="background-image: url('./images/saga.jpg')"></div>
+        <div class="char-info">
+          <h2 class="char-name">사가 앤더슨</h2>
+          <p class="char-role">FBI 수사관 · 브라이트 폴스 담당</p>
+          <div class="char-desc">
+            <p>
+              연방수사국 소속 베테랑 수사관. 냉철한 판단력과 뛰어난 직관으로 미결 사건을 전문으로 담당한다.
+              워싱턴 주 브라이트 폴스 인근 호수에서 발생한 의문의 변사 사건을 조사하기 위해 파견되며,
+              사건이 깊어질수록 현실과 초자연 현상의 경계가 흐릿해지는 것을 직접 체험하게 된다.
+            </p>
+            <p>
+              머릿속에서 '마인드 플레이스'라 불리는 가상의 수사 공간을 구성하는 능력을 지니고 있으며,
+              이 능력이 앨런 웨이크의 이야기와 교차하면서 사건의 진실에 한 발씩 다가간다.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="char-section" id="char-alan">
+        <div class="char-parallax" style="background-image: url('./images/alan.jpg')"></div>
+        <div class="char-info">
+          <h2 class="char-name">앨런 웨이크</h2>
+          <p class="char-role">베스트셀러 작가 · The Dark Place 생존자</p>
+          <div class="char-desc">
+            <p>
+              한때 미국 최고의 스릴러 작가였으나, 13년 전 양 호수에서 벌어진 사건 이후
+              '어두운 장소(The Dark Place)'에 갇혀 있다. 그 공간 안에서 그가 쓰는 글은
+              현실에 직접 영향을 미치며, 이야기를 써 내려가는 행위 자체가 탈출의 열쇠가 된다.
+            </p>
+            <p>
+              시간이 갈수록 현실과 허구의 경계를 스스로 구분하지 못하게 되고,
+              그가 만들어낸 악의 존재 '스크래치'가 현실 세계로 침투하기 시작한다.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="char-section" id="char-tim">
+        <div class="char-parallax" style="background-image: url('./images/tim.jpg')"></div>
+        <div class="char-info">
+          <h2 class="char-name">팀 브레이커</h2>
+          <p class="char-role">브라이트 폴스 보안관</p>
+          <div class="char-desc">
+            <p>
+              브라이트 폴스 지역 보안관으로, 사가 앤더슨의 파트너로 활동한다.
+              현지 사정에 밝고 주민들과의 신뢰 관계가 두터우며, 냉정한 사가와 대비되는
+              인간적이고 따뜻한 성격을 지니고 있다.
+            </p>
+            <p>
+              초자연적인 사건에 회의적이었으나, 사건이 진행되면서 브라이트 폴스를 둘러싼
+              어두운 힘의 실체를 마주하게 된다.
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
   </body>
 </html>
