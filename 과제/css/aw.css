@@ -1,7 +1,21 @@
+/* ── 색상 변수 ── */
+:root {
+   --bg-main:    #0B0D10;
+   --bg-card:    #161A1F;
+   --red-point:  #9B1C1C;
+   --red-neon:   #D72638;
+   --gray-fog:   #8B949E;
+   --text:       #E6EDF3;
+   --accent:     #F05454;
+}
+
 body {
    padding: 0px;
    margin: 0px;
    overflow: hidden;
+   font-family: 'Pretendard', sans-serif;
+   background-color: var(--bg-main);
+   color: var(--text);
 }
 
 .background-vid {
@@ -20,7 +34,7 @@ body {
    left: 0;
    width: 100%;
    height: 100%;
-   background: rgba(0, 0, 0, 0.5);
+   background: rgba(11, 13, 16, 0.55);
    z-index: -1;
    pointer-events: none;
 }
@@ -49,17 +63,30 @@ body {
    inset: 0;
    z-index: 9999;
    overflow: auto;
-   padding: 40px;
-   background-color: #000;
-   color: #fff;
+   padding: 24px 32px 32px;
+   background-color: var(--bg-main);
+   color: var(--text);
+   box-sizing: border-box;
 }
 
-body:has(#gallery:target) #intro {
+body:has(#gallery:target, .story-modal:target) #intro {
    display: none;
 }
 
+body:has(.story-modal:target) #gallery {
+   visibility: visible;
+   opacity: 1;
+   position: fixed;
+   inset: 0;
+   z-index: 9999;
+   overflow: auto;
+   padding: 24px 32px 32px;
+   background-color: var(--bg-main);
+   color: var(--text);
+   box-sizing: border-box;
+}
+
 #gallery h1 {
-   color: inherit;
    text-decoration: none;
    cursor: pointer;
 }
@@ -72,14 +99,33 @@ body:has(#gallery:target) #intro {
 /* ── 갤러리 제목 ── */
 .gallery-title {
    text-align: center;
-   margin: 0 0 40px;
+   margin: 0 0 20px;
+   font-size: 1.4rem;
+   letter-spacing: 0.2em;
+   color: var(--gray-fog);
 }
 
 /* ── 갤러리 그리드 ── */
 .gallery-grid {
    display: grid;
-   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-   gap: 20px;
+   grid-template-columns: repeat(3, 1fr);
+   gap: 12px;
+}
+
+.gallery-item {
+   transition: filter 0.3s ease, opacity 0.3s ease;
+}
+
+/* hover 시 나머지 카드 블러 */
+.gallery-grid:hover .gallery-item {
+   opacity: 0.4;
+   filter: blur(4px);
+}
+
+/* hover된 카드 본인은 선명하게 */
+.gallery-grid:hover .gallery-item:hover {
+   opacity: 1;
+   filter: blur(0);
 }
 
 .gallery-thumb-link {
@@ -88,9 +134,11 @@ body:has(#gallery:target) #intro {
 }
 
 .gallery-thumb {
+   position: relative;
    margin: 0;
    overflow: hidden;
    cursor: pointer;
+   background-color: var(--bg-card);
 }
 
 .gallery-thumb img {
@@ -100,8 +148,17 @@ body:has(#gallery:target) #intro {
    object-fit: cover;
 }
 
+/* 텍스트를 이미지 왼쪽 아래에 오버레이 */
 .gallery-thumb figcaption {
-   padding: 8px 0;
+   position: absolute;
+   bottom: 0;
+   left: 0;
+   padding: 6px 12px 8px;
+   font-size: 0.85rem;
+   color: var(--text);
+   background: linear-gradient(transparent, rgba(11, 13, 16, 0.85));
+   width: 100%;
+   box-sizing: border-box;
 }
 
 /* ── Modal (dialog) ── */
@@ -117,24 +174,33 @@ body:has(#gallery:target) #intro {
    margin: 0;
    padding: 0;
    border: none;
-   background: rgba(0, 0, 0, 0.85);
-   overflow: auto;
+   background: rgba(11, 13, 16, 0.9);
+   overflow: hidden;
 }
 
 .story-modal:target {
    display: flex;
+   flex-direction: column;
    align-items: center;
    justify-content: center;
 }
 
+/* X 버튼 */
 .modal-close {
-   position: absolute;
-   top: 16px;
-   right: 24px;
-   font-size: 2rem;
+   position: fixed;
+   top: 20px;
+   right: 28px;
+   font-size: 2.4rem;
    line-height: 1;
    text-decoration: none;
    cursor: pointer;
+   color: var(--gray-fog);
+   z-index: 10001;
+   transition: color 0.2s ease;
+}
+
+.modal-close:hover {
+   color: var(--accent);
 }
 
 /* ── Modal 내부 Flexbox 레이아웃 ── */
@@ -144,8 +210,13 @@ body:has(#gallery:target) #intro {
    align-items: flex-start;
    gap: 32px;
    width: min(90vw, 1100px);
+   max-height: 85vh;
    padding: 48px 40px;
    box-sizing: border-box;
+   background: var(--bg-card);
+   border: 1px solid var(--red-point);
+   border-radius: 8px;
+   overflow-y: auto;
 }
 
 /* 왼쪽 — 확대 이미지 */
@@ -169,19 +240,26 @@ body:has(#gallery:target) #intro {
    gap: 16px;
    overflow-y: auto;
    max-height: 70vh;
+   color: var(--text);
 }
 
 .modal-text-header {
-   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+   border-bottom: 1px solid var(--red-point);
    padding-bottom: 12px;
 }
 
 .modal-text-header h2 {
    margin: 0;
+   color: var(--accent);
 }
 
 .modal-text-body {
    line-height: 1.7;
+   color: var(--text);
+}
+
+.modal-text-body strong {
+   color: var(--red-neon);
 }
 
 /* ── 반응형: 좁은 화면에서 Modal 내부를 세로 배치 ── */
@@ -199,4 +277,10 @@ body:has(#gallery:target) #intro {
    .modal-text-area {
       max-height: none;
    }
+}
+
+#chapter-title {
+   font-family: 'Bebas Neue', sans-serif;
+   font-size: 55px;
+   color: var(--accent);
 }

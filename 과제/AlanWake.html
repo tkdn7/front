@@ -4,32 +4,42 @@
     <meta charset="utf-8" />
     <title>Alan Wake II</title>
     <link rel="stylesheet" href="css/aw.css" />
+    <!-- 8 ~ 13번 chapter-title font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" /> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
+      rel="stylesheet"
+    />
+    <!-- 본문용 font -->
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
   </head>
   <body>
     <header class="intro-screen" id="intro">
       <video class="background-vid" autoplay loop muted>
-        <source src="../../과제/videos/background_vid.mp4" />
+        <source src="../과제/videos/background_vid.mp4" type="video/mp4" />
       </video>
       <div class="overlay"></div>
       <!-- 반투명 오버레이 -->
       <a href="#gallery" style="width: 100%; height: auto">
         <img
-          src="images/main_logo.avif"
+          src="../과제/images/main_logo.avif"
           alt="Alan Wake 2 Logo"
           class="center-logo"
+          type="images/avif"
         />
       </a>
     </header>
     <main class="gallery-content" id="gallery">
-      <h1 class="gallery-title">ALAN WAKE II</h1>
+      <h1 class="gallery-title" id="chapter-title">ALAN WAKE II</h1>
 
       <!-- 갤러리 그리드 영역 -->
       <section class="gallery-grid" aria-label="스토리 갤러리">
         <article class="gallery-item">
           <a href="#modal-1" class="gallery-thumb-link">
             <figure class="gallery-thumb">
-              <img src="" alt="Chapter 1 썸네일" />
-              <figcaption>Chapter 1: Initiation</figcaption>
+              <img src="./images/chap1.webp" alt="Chapter 1 썸네일" />
+              <figcaption>Chapter 1: Invitation</figcaption>
             </figure>
           </a>
         </article>
@@ -38,7 +48,7 @@
           <a href="#modal-2" class="gallery-thumb-link">
             <figure class="gallery-thumb">
               <img src="" alt="Chapter 2 썸네일" />
-              <figcaption>Chapter 2: The Overlap</figcaption>
+              <figcaption>Chapter 2: The Heart</figcaption>
             </figure>
           </a>
         </article>
@@ -46,7 +56,7 @@
         <article class="gallery-item">
           <a href="#modal-3" class="gallery-thumb-link">
             <figure class="gallery-thumb">
-              <img src="" alt="Chapter 3 썸네일" />
+              <img src="./images/chap3.jpg" alt="Chapter 3 썸네일" />
               <figcaption>Chapter 3: Local Girl</figcaption>
             </figure>
           </a>
@@ -56,7 +66,7 @@
           <a href="#modal-4" class="gallery-thumb-link">
             <figure class="gallery-thumb">
               <img src="" alt="Chapter 4 썸네일" />
-              <figcaption>Chapter 4: We Sing</figcaption>
+              <figcaption>Chapter 4: No Chance</figcaption>
             </figure>
           </a>
         </article>
@@ -74,7 +84,7 @@
           <a href="#modal-6" class="gallery-thumb-link">
             <figure class="gallery-thumb">
               <img src="" alt="Chapter 6 썸네일" />
-              <figcaption>Chapter 6: The Dark Place</figcaption>
+              <figcaption>Chapter 6: Scratch</figcaption>
             </figure>
           </a>
         </article>
@@ -90,14 +100,31 @@
         <a href="#gallery" class="modal-close" aria-label="닫기">&times;</a>
         <div class="modal-inner">
           <figure class="modal-image-area">
-            <img src="" alt="Chapter 1 확대 이미지" />
+            <img src="./images/chap1.webp" alt="Chapter 1 확대 이미지" />
           </figure>
           <article class="modal-text-area">
             <header class="modal-text-header">
-              <h2>Chapter 1: Initiation</h2>
+              <h2>Chapter 1: Invitation</h2>
             </header>
             <section class="modal-text-body">
-              <p>스토리 설명 텍스트가 들어갈 영역입니다.</p>
+              <p>
+                FBI 요원 <strong>사가 앤더슨</strong>은 워싱턴 주 브라이트 폴스
+                인근 호수에서 발견된 의문의 변사 사건을 조사하기 위해 파견된다.
+                시신 주변에는 현실과 맞지 않는 이상한 흔적들이 남아 있고,
+                사가는 현지 보안관 <strong>팀 브레이커</strong>와 함께 수사에
+                착수한다.
+              </p>
+              <p>
+                한편 어두운 장소(The Dark Place)에 갇혀 13년을 보낸
+                <strong>앨런 웨이크</strong>는 그 공간을 탈출하기 위해
+                자신이 직접 이야기를 써 내려가기 시작한다. 그가 쓰는 글이
+                현실에 영향을 미친다는 사실을 깨닫고, 탈출을 위한 서사를
+                구성해 나간다.
+              </p>
+              <p>
+                두 인물의 시선이 교차하며 브라이트 폴스를 둘러싼 초자연적
+                사건의 실체가 서서히 드러나기 시작한다.
+              </p>
             </section>
           </article>
         </div>
