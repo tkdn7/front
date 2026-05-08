@@ -8,21 +8,210 @@
   <body>
     <header class="intro-screen" id="intro">
       <video class="background-vid" autoplay loop muted>
-        <source src="/videos/background_vid.mp4" />
+        <source src="../../과제/videos/background_vid.mp4" />
       </video>
       <div class="overlay"></div>
       <!-- 반투명 오버레이 -->
-      <a href="#gallery" style="width: 100%; height: auto;">
+      <a href="#gallery" style="width: 100%; height: auto">
         <img
-          src="/images/main_logo.avif"
+          src="images/main_logo.avif"
           alt="Alan Wake 2 Logo"
           class="center-logo"
         />
       </a>
     </header>
     <main class="gallery-content" id="gallery">
-      <!--TODO: 화면 전환 후 보여질 갤러리-->
-      <h1>ALAN WAKE II</h1>
+      <h1 class="gallery-title">ALAN WAKE II</h1>
+
+      <!-- 갤러리 그리드 영역 -->
+      <section class="gallery-grid" aria-label="스토리 갤러리">
+        <article class="gallery-item">
+          <a href="#modal-1" class="gallery-thumb-link">
+            <figure class="gallery-thumb">
+              <img src="" alt="Chapter 1 썸네일" />
+              <figcaption>Chapter 1: Initiation</figcaption>
+            </figure>
+          </a>
+        </article>
+
+        <article class="gallery-item">
+          <a href="#modal-2" class="gallery-thumb-link">
+            <figure class="gallery-thumb">
+              <img src="" alt="Chapter 2 썸네일" />
+              <figcaption>Chapter 2: The Overlap</figcaption>
+            </figure>
+          </a>
+        </article>
+
+        <article class="gallery-item">
+          <a href="#modal-3" class="gallery-thumb-link">
+            <figure class="gallery-thumb">
+              <img src="" alt="Chapter 3 썸네일" />
+              <figcaption>Chapter 3: Local Girl</figcaption>
+            </figure>
+          </a>
+        </article>
+
+        <article class="gallery-item">
+          <a href="#modal-4" class="gallery-thumb-link">
+            <figure class="gallery-thumb">
+              <img src="" alt="Chapter 4 썸네일" />
+              <figcaption>Chapter 4: We Sing</figcaption>
+            </figure>
+          </a>
+        </article>
+
+        <article class="gallery-item">
+          <a href="#modal-5" class="gallery-thumb-link">
+            <figure class="gallery-thumb">
+              <img src="" alt="Chapter 5 썸네일" />
+              <figcaption>Chapter 5: Old Gods</figcaption>
+            </figure>
+          </a>
+        </article>
+
+        <article class="gallery-item">
+          <a href="#modal-6" class="gallery-thumb-link">
+            <figure class="gallery-thumb">
+              <img src="" alt="Chapter 6 썸네일" />
+              <figcaption>Chapter 6: The Dark Place</figcaption>
+            </figure>
+          </a>
+        </article>
+      </section>
+
+      <!-- Modal 팝업 영역 -->
+      <dialog
+        class="story-modal"
+        id="modal-1"
+        aria-modal="true"
+        aria-label="Chapter 1 스토리 상세"
+      >
+        <a href="#gallery" class="modal-close" aria-label="닫기">&times;</a>
+        <div class="modal-inner">
+          <figure class="modal-image-area">
+            <img src="" alt="Chapter 1 확대 이미지" />
+          </figure>
+          <article class="modal-text-area">
+            <header class="modal-text-header">
+              <h2>Chapter 1: Initiation</h2>
+            </header>
+            <section class="modal-text-body">
+              <p>스토리 설명 텍스트가 들어갈 영역입니다.</p>
+            </section>
+          </article>
+        </div>
+      </dialog>
+
+      <dialog
+        class="story-modal"
+        id="modal-2"
+        aria-modal="true"
+        aria-label="Chapter 2 스토리 상세"
+      >
+        <a href="#gallery" class="modal-close" aria-label="닫기">&times;</a>
+        <div class="modal-inner">
+          <figure class="modal-image-area">
+            <img src="" alt="Chapter 2 확대 이미지" />
+          </figure>
+          <article class="modal-text-area">
+            <header class="modal-text-header">
+              <h2>Chapter 2: The Overlap</h2>
+            </header>
+            <section class="modal-text-body">
+              <p>스토리 설명 텍스트가 들어갈 영역입니다.</p>
+            </section>
+          </article>
+        </div>
+      </dialog>
+
+      <dialog
+        class="story-modal"
+        id="modal-3"
+        aria-modal="true"
+        aria-label="Chapter 3 스토리 상세"
+      >
+        <a href="#gallery" class="modal-close" aria-label="닫기">&times;</a>
+        <div class="modal-inner">
+          <figure class="modal-image-area">
+            <img src="" alt="Chapter 3 확대 이미지" />
+          </figure>
+          <article class="modal-text-area">
+            <header class="modal-text-header">
+              <h2>Chapter 3: Local Girl</h2>
+            </header>
+            <section class="modal-text-body">
+              <p>스토리 설명 텍스트가 들어갈 영역입니다.</p>
+            </section>
+          </article>
+        </div>
+      </dialog>
+
+      <dialog
+        class="story-modal"
+        id="modal-4"
+        aria-modal="true"
+        aria-label="Chapter 4 스토리 상세"
+      >
+        <a href="#gallery" class="modal-close" aria-label="닫기">&times;</a>
+        <div class="modal-inner">
+          <figure class="modal-image-area">
+            <img src="" alt="Chapter 4 확대 이미지" />
+          </figure>
+          <article class="modal-text-area">
+            <header class="modal-text-header">
+              <h2>Chapter 4: We Sing</h2>
+            </header>
+            <section class="modal-text-body">
+              <p>스토리 설명 텍스트가 들어갈 영역입니다.</p>
+            </section>
+          </article>
+        </div>
+      </dialog>
+
+      <dialog
+        class="story-modal"
+        id="modal-5"
+        aria-modal="true"
+        aria-label="Chapter 5 스토리 상세"
+      >
+        <a href="#gallery" class="modal-close" aria-label="닫기">&times;</a>
+        <div class="modal-inner">
+          <figure class="modal-image-area">
+            <img src="" alt="Chapter 5 확대 이미지" />
+          </figure>
+          <article class="modal-text-area">
+            <header class="modal-text-header">
+              <h2>Chapter 5: Old Gods</h2>
+            </header>
+            <section class="modal-text-body">
+              <p>스토리 설명 텍스트가 들어갈 영역입니다.</p>
+            </section>
+          </article>
+        </div>
+      </dialog>
+
+      <dialog
+        class="story-modal"
+        id="modal-6"
+        aria-modal="true"
+        aria-label="Chapter 6 스토리 상세"
+      >
+        <a href="#gallery" class="modal-close" aria-label="닫기">&times;</a>
+        <div class="modal-inner">
+          <figure class="modal-image-area">
+            <img src="" alt="Chapter 6 확대 이미지" />
+          </figure>
+          <article class="modal-text-area">
+            <header class="modal-text-header">
+              <h2>Chapter 6: The Dark Place</h2>
+            </header>
+            <section class="modal-text-body">
+              <p>스토리 설명 텍스트가 들어갈 영역입니다.</p>
+            </section>
+          </article>
+        </div>
+      </dialog>
     </main>
   </body>
 </html>

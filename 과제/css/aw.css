@@ -57,3 +57,146 @@ body {
 body:has(#gallery:target) #intro {
    display: none;
 }
+
+#gallery h1 {
+   color: inherit;
+   text-decoration: none;
+   cursor: pointer;
+}
+
+#gallery a {
+   text-decoration: none;
+   color: inherit;
+}
+
+/* ── 갤러리 제목 ── */
+.gallery-title {
+   text-align: center;
+   margin: 0 0 40px;
+}
+
+/* ── 갤러리 그리드 ── */
+.gallery-grid {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+   gap: 20px;
+}
+
+.gallery-thumb-link {
+   display: block;
+   text-decoration: none;
+}
+
+.gallery-thumb {
+   margin: 0;
+   overflow: hidden;
+   cursor: pointer;
+}
+
+.gallery-thumb img {
+   display: block;
+   width: 100%;
+   aspect-ratio: 16 / 9;
+   object-fit: cover;
+}
+
+.gallery-thumb figcaption {
+   padding: 8px 0;
+}
+
+/* ── Modal (dialog) ── */
+.story-modal {
+   display: none;
+   position: fixed;
+   inset: 0;
+   z-index: 10000;
+   width: 100%;
+   max-width: 100%;
+   height: 100%;
+   max-height: 100%;
+   margin: 0;
+   padding: 0;
+   border: none;
+   background: rgba(0, 0, 0, 0.85);
+   overflow: auto;
+}
+
+.story-modal:target {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.modal-close {
+   position: absolute;
+   top: 16px;
+   right: 24px;
+   font-size: 2rem;
+   line-height: 1;
+   text-decoration: none;
+   cursor: pointer;
+}
+
+/* ── Modal 내부 Flexbox 레이아웃 ── */
+.modal-inner {
+   display: flex;
+   flex-direction: row;
+   align-items: flex-start;
+   gap: 32px;
+   width: min(90vw, 1100px);
+   padding: 48px 40px;
+   box-sizing: border-box;
+}
+
+/* 왼쪽 — 확대 이미지 */
+.modal-image-area {
+   flex: 0 0 50%;
+   margin: 0;
+}
+
+.modal-image-area img {
+   display: block;
+   width: 100%;
+   height: auto;
+   object-fit: contain;
+}
+
+/* 오른쪽 — 스토리 텍스트 */
+.modal-text-area {
+   flex: 1 1 0;
+   display: flex;
+   flex-direction: column;
+   gap: 16px;
+   overflow-y: auto;
+   max-height: 70vh;
+}
+
+.modal-text-header {
+   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+   padding-bottom: 12px;
+}
+
+.modal-text-header h2 {
+   margin: 0;
+}
+
+.modal-text-body {
+   line-height: 1.7;
+}
+
+/* ── 반응형: 좁은 화면에서 Modal 내부를 세로 배치 ── */
+@media (max-width: 640px) {
+   .modal-inner {
+      flex-direction: column;
+      padding: 40px 20px;
+   }
+
+   .modal-image-area {
+      flex: none;
+      width: 100%;
+   }
+
+   .modal-text-area {
+      max-height: none;
+   }
+}
