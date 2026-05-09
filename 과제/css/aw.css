@@ -213,9 +213,11 @@ body:has(.story-modal:target) #gallery {
    max-height: 85vh;
    padding: 48px 40px;
    box-sizing: border-box;
-   background: var(--bg-card);
-   border: 1px solid var(--red-point);
+   background: rgba(22, 26, 31, 0.72);
+   backdrop-filter: blur(14px);
+   -webkit-backdrop-filter: blur(14px);
    border-radius: 8px;
+   box-shadow: 0 8px 48px rgba(0, 0, 0, 0.55);
    overflow-y: auto;
    position: relative;
 }
