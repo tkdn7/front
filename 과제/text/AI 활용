@@ -1,0 +1,67 @@
+## AI 활용 목적
+
+---
+
+## 프롬프트
+
+---
+
+1. 첫 프롬프트 
+    - 현재 파일에서 앨런 웨이크2의 스토리를 보여주는 갤러리 페이지의 기본 레이아웃 코드를 작성해줘
+    - 요구사항:
+    - 메인 갤러리 영역은 CSS Grid를 사용해서 이미지 썸네일들이 반응형으로 배치되는 구조로 짜줘 단, 화면 크기에 따라 1열에서 3열로 변하도록 auto-fit을 사용해주고
+    - Modal 팝업 영역으로 썸네일을 클릭했을 때 나타날 스토리 설명 창의 HTML 뼈대를 만들어줘
+    - 2번째에서 얘기했던 스토리 설명 창의 레이아웃은 상세 보기 창 내부는 CSS Flexbox를 사용해서 왼쪽에는 이미지를 확대해서 보여주고, 오른쪽에서는 스토리를 텍스트로 설명할 수 있는 영역을 나란히 배치해줘 단, Modal 창을 띄우고 닫는 JavaScript 동작 코드나 세부적인 폰트/색상 디자인은 제외하고, HTML 시맨틱 태그 구조와 Grid/Flex 레이아웃을 잡는 CSS를 작성해줘
+2. 두 번째 프롬프트
+
+1. 세 번째 프롬프트
+
+| **역할** | **색상** | **느낌** |
+| --- | --- | --- |
+| 메인 배경 | #0B0D10 | 깊은 어둠 |
+| 카드 배경 | #161A1F | 영화 UI |
+| 포인트 레드 | #9B1C1C | Dark Presence |
+| 네온 레드 | #D72638 | 공포/경고 |
+| 안개 회색 | #8B949E | 우울함 |
+| 텍스트 | #E6EDF3 | 높은 가독성 |
+| 강조색 | #F05454 | 긴장감 |
+
+현재 색상으로 통일해줘
+
+## AI 코드 검증 및 수정
+
+---
+
+1. 두 번째 프롬프트 작성시에 모달 팝업창 구현을 했는데 X 버튼 표기가 없어짐,
+
+```css
+/* X 버튼 */
+.modal-close {
+   position: fixed;
+   top: 20px;
+   right: 28px;
+   font-size: 2.4rem;
+   line-height: 1;
+   text-decoration: none;
+   cursor: pointer;
+   color: var(--gray-fog);
+   z-index: 10001;
+   transition: color 0.2s ease;
+}
+
+/* ── Modal 내부 Flexbox 레이아웃 ── */
+.modal-inner {
+   display: flex;
+   flex-direction: row;
+   align-items: flex-start;
+   gap: 32px;
+   width: min(90vw, 1100px);
+   max-height: 85vh;
+   padding: 48px 40px;
+   box-sizing: border-box;
+   background: var(--bg-card);
+   border: 1px solid var(--red-point);
+   border-radius: 8px;
+   overflow-y: auto;
+}
+```
