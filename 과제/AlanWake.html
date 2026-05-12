@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <title>Alan Wake II</title>
     <link rel="stylesheet" href="css/aw.css" />
-    <!-- chapter-title font -->
+    <!-- 제목용 font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -25,22 +25,21 @@
         <source src="./videos/intro/background_vid.mp4" type="video/mp4" />
       </video>
       <div class="overlay"></div>
-      <!-- 반투명 오버레이 -->
-      <a href="#gallery" style="width: 100%; height: auto">
+      <a href="#gallery" class="intro-logo-link" aria-label="갤러리로 이동">
         <img
           src="./images/intro/main_logo.avif"
           alt="Alan Wake 2 Logo"
           class="center-logo"
-          type="images/avif"
         />
       </a>
     </header>
+
     <main class="gallery-content" id="gallery">
-      <h1 class="gallery-title" id="chapter-title">
+      <h1 id="gallery-title">
         <a href="#intro">ALAN WAKE II</a>
       </h1>
 
-      <!-- 갤러리 그리드 영역 -->
+      <!-- 갤러리 그리드 -->
       <section class="gallery-grid" aria-label="스토리 갤러리">
         <article class="gallery-item">
           <a href="#modal-1" class="gallery-thumb-link">
@@ -97,13 +96,8 @@
         </article>
       </section>
 
-      <!-- Modal 팝업 영역 -->
-      <div
-        class="story-modal"
-        id="modal-1"
-        aria-modal="true"
-        aria-label="Chapter 1 스토리 상세"
-      >
+      <!-- 모달 -->
+      <div class="story-modal" id="modal-1" aria-label="Chapter 1 스토리 상세">
         <div class="modal-inner">
           <a href="#gallery" class="modal-close" aria-label="닫기">&times;</a>
           <figure class="modal-image-area">
@@ -117,9 +111,9 @@
               <p>
                 FBI 요원
                 <a href="#char-saga" class="char-link">사가 앤더슨</a>은 워싱턴
-                주 브라이트 폴스 인근 호수에서 발견된 의문의 변사 사건을
-                조사하기 위해 파견된다. 시신 주변에는 현실과 맞지 않는 이상한
-                흔적들이 남아 있고, 사가는 현지 보안관
+                주 브라이트 폴스 인근 호수에서 발견된 의문의 변사 사건을 조사하기
+                위해 파견된다. 시신 주변에는 현실과 맞지 않는 이상한 흔적들이 남아
+                있고, 사가는 현지 보안관
                 <a href="#char-tim" class="char-link">팀 브레이커</a>와 함께
                 수사에 착수한다.
               </p>
@@ -139,12 +133,7 @@
         </div>
       </div>
 
-      <div
-        class="story-modal"
-        id="modal-2"
-        aria-modal="true"
-        aria-label="Chapter 2 스토리 상세"
-      >
+      <div class="story-modal" id="modal-2" aria-label="Chapter 2 스토리 상세">
         <div class="modal-inner">
           <a href="#gallery" class="modal-close" aria-label="닫기">&times;</a>
           <figure class="modal-image-area">
@@ -178,12 +167,7 @@
         </div>
       </div>
 
-      <div
-        class="story-modal"
-        id="modal-3"
-        aria-modal="true"
-        aria-label="Chapter 3 스토리 상세"
-      >
+      <div class="story-modal" id="modal-3" aria-label="Chapter 3 스토리 상세">
         <div class="modal-inner">
           <a href="#gallery" class="modal-close" aria-label="닫기">&times;</a>
           <figure class="modal-image-area">
@@ -217,12 +201,7 @@
         </div>
       </div>
 
-      <div
-        class="story-modal"
-        id="modal-4"
-        aria-modal="true"
-        aria-label="Chapter 4 스토리 상세"
-      >
+      <div class="story-modal" id="modal-4" aria-label="Chapter 4 스토리 상세">
         <div class="modal-inner">
           <a href="#gallery" class="modal-close" aria-label="닫기">&times;</a>
           <figure class="modal-image-area">
@@ -257,12 +236,7 @@
         </div>
       </div>
 
-      <div
-        class="story-modal"
-        id="modal-5"
-        aria-modal="true"
-        aria-label="Chapter 5 스토리 상세"
-      >
+      <div class="story-modal" id="modal-5" aria-label="Chapter 5 스토리 상세">
         <div class="modal-inner">
           <a href="#gallery" class="modal-close" aria-label="닫기">&times;</a>
           <figure class="modal-image-area">
@@ -297,12 +271,7 @@
         </div>
       </div>
 
-      <div
-        class="story-modal"
-        id="modal-6"
-        aria-modal="true"
-        aria-label="Chapter 6 스토리 상세"
-      >
+      <div class="story-modal" id="modal-6" aria-label="Chapter 6 스토리 상세">
         <div class="modal-inner">
           <a href="#gallery" class="modal-close" aria-label="닫기">&times;</a>
           <figure class="modal-image-area">
@@ -338,16 +307,13 @@
 
     <!-- 캐릭터 페이지 -->
     <div class="characters-page">
-      <a href="#gallery" class="chars-back">← 갤러리로</a>
+      <a href="#gallery" class="chars-back">&#8592; 갤러리로</a>
 
       <section class="char-section" id="char-saga">
-        <div
-          class="char-parallax"
-          style="background-image: url(&quot;./images/character/saga.png&quot;)"
-        ></div>
+        <div class="char-parallax" style="background-image: url('./images/character/saga.png')"></div>
         <div class="char-info">
           <h2 class="char-name">사가 앤더슨</h2>
-          <p class="char-role">FBI 수사관 · 브라이트 폴스 담당</p>
+          <p class="char-role">FBI 수사관 &middot; 브라이트 폴스 담당</p>
           <div class="char-desc">
             <p>
               연방수사국 소속 베테랑 수사관. 냉철한 판단력과 뛰어난 직관으로
@@ -366,13 +332,10 @@
       </section>
 
       <section class="char-section" id="char-alan">
-        <div
-          class="char-parallax"
-          style="background-image: url(&quot;./images/character/alan.jpg&quot;)"
-        ></div>
+        <div class="char-parallax" style="background-image: url('./images/character/alan.jpg')"></div>
         <div class="char-info">
           <h2 class="char-name">앨런 웨이크</h2>
-          <p class="char-role">베스트셀러 작가 · The Dark Place 생존자</p>
+          <p class="char-role">베스트셀러 작가 &middot; The Dark Place 생존자</p>
           <div class="char-desc">
             <p>
               한때 미국 최고의 스릴러 작가였으나, 13년 전 양 호수에서 벌어진
@@ -390,10 +353,7 @@
       </section>
 
       <section class="char-section" id="char-tim">
-        <div
-          class="char-parallax"
-          style="background-image: url(&quot;./images/character/tim.jpg&quot;)"
-        ></div>
+        <div class="char-parallax" style="background-image: url('./images/character/tim.jpg')"></div>
         <div class="char-info">
           <h2 class="char-name">팀 브레이커</h2>
           <p class="char-role">브라이트 폴스 보안관</p>

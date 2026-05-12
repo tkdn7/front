@@ -1,0 +1,183 @@
+======================================================
+  코드 정리 변경점 보고서
+  대상: AlanWake.html / css/aw.css
+  날짜: 2026-05-12
+======================================================
+
+
+[1] 캐릭터 페이지 이미지 분위기 보정
+------------------------------------------------------
+  대상: .char-parallax (CSS)
+
+  추가:
+    .char-parallax::after {
+       background:
+         linear-gradient(상하 어둠) + radial-gradient(비네팅);
+    }
+
+  이유:
+  - 캐릭터 원본 이미지의 밝기/색감이 제각각이어서 페이지
+    전체 분위기와 불일치
+  - Alan Wake 2의 어두운 톤에 맞춰 상하 그라데이션 + 비네팅
+    오버레이를 ::after로 일괄 적용
+  - 원본 이미지 파일은 수정하지 않고 CSS만으로 처리
+
+
+[2] id/class 명칭 통합
+------------------------------------------------------
+  변경 전: <h1 class="gallery-title" id="chapter-title">
+  변경 후: <h1 id="gallery-title">
+
+  CSS 변경:
+    .gallery-title {...}  ← 삭제
+    #chapter-title {...}  ← 삭제
+    #gallery-title {...}  ← 통합 신규
+
+  이유:
+  - 하나의 요소에 class(레이아웃)와 id(폰트/색상)가 분산
+  - 페이지에 유일한 제목이므로 id 하나로 통합
+  - 주석도 "chapter-title font" → "제목용 font" 정리
+
+
+[3] 중복 CSS 규칙 제거
+------------------------------------------------------
+  변경 전:
+    #gallery:target { ...12줄... }
+    body:has(.story-modal:target) #gallery { ...동일 12줄... }
+
+  변경 후:
+    #gallery:target,
+    body:has(.story-modal:target) #gallery { ...12줄 1회... }
+
+  이유:
+  - 동일 속성 블록이 2번 반복, 한쪽만 수정하는 실수 가능성
+
+
+[4] 불필요한 넓은 범위의 선택자 삭제
+------------------------------------------------------
+  삭제된 규칙:
+    (1) #gallery h1 { text-decoration: none; cursor: pointer; }
+    (2) #gallery a { text-decoration: none; color: inherit; }
+
+  이유:
+    (1) h1에 text-decoration: none은 무의미 (h1 기본값이 none)
+        cursor: pointer도 내부 <a>가 처리함
+    (2) 갤러리 내 모든 링크 색상을 흰색으로 강제해서
+        .char-link에 별도 색상을 주려면 #gallery .char-link으로
+        우선순위를 높여야 했음
+
+  대체 처리:
+    - .gallery-thumb-link에 color: inherit 직접 추가
+    - #gallery-title a에 color: inherit 직접 추가
+    - .char-link에서 #gallery 접두사 제거 → 단독 선택자로 동작
+
+
+[5] :has() 선택자 간소화
+------------------------------------------------------
+  변경 전:
+    body:has(#char-saga:target, #char-alan:target, #char-tim:target)
+
+  변경 후:
+    body:has(.char-section:target)
+
+  적용 위치: 인트로 숨김 규칙, 캐릭터 페이지 표시 규칙 (2곳)
+
+  이유:
+  - 캐릭터 추가 시 CSS에 id를 매번 나열할 필요 없어짐
+  - HTML에 .char-section 클래스만 붙이면 자동 적용
+
+
+[6] HTML에서 무효한 속성 삭제
+------------------------------------------------------
+  삭제: <img ... type="images/avif" />
+
+  이유:
+  - type 속성은 <source> 태그에만 유효
+  - <img> 태그에서는 W3C 유효성 검사 오류
+
+
+[7] 인라인 style 제거
+------------------------------------------------------
+  변경 전: <a href="#gallery" style="width: 100%; height: auto">
+  변경 후: <a href="#gallery" class="intro-logo-link">
+
+  이유:
+  - CSS에 .intro-logo-link 규칙이 이미 존재했으나
+    HTML에서 인라인 style이 병행되어 관리가 분산
+
+
+[8] .story-modal 불필요 속성 제거
+------------------------------------------------------
+  삭제: width: 100%; max-width: 100%; height: 100%; max-height: 100%;
+
+  이유:
+  - position: fixed + inset: 0 이 이미 전체 화면을 차지하므로
+    width/height 및 max-* 속성은 중복
+
+  유지: margin: 0; padding: 0; border: none;
+  - <div>가 아닌 <dialog>에서 변환된 잔재이나
+    브라우저 기본 스타일 리셋 목적으로 유지
+
+
+[9] .overlay 속성 단순화
+------------------------------------------------------
+  변경 전: top: 0; left: 0; width: 100%; height: 100%;
+  변경 후: inset: 0;
+
+  이유: 동일 효과를 shorthand 1줄로 대체
+
+
+[10] .modal-text-body 중복 color 제거
+------------------------------------------------------
+  삭제: .modal-text-body { color: var(--text); }
+
+  이유:
+  - 부모 .modal-text-area에서 이미 color: var(--text) 상속
+  - .modal-text-body strong { color: var(--red-neon) } 도 삭제
+    → 현재 모달 본문에 <strong> 미사용 (전부 <a class="char-link">)
+
+
+[11] .modal-inner 정리
+------------------------------------------------------
+  삭제: gap: 0; padding: 0;
+
+  이유: 기본값이 0이므로 명시 불필요
+
+  유지: backdrop-filter, box-shadow, border-radius 등 시각 효과
+
+
+[12] CSS 파일 구조 재배치
+------------------------------------------------------
+  13개 섹션으로 번호 매겨 화면 흐름순 정리:
+
+    1.  색상 변수
+    2.  리셋 / 공통
+    3.  인트로 화면
+    4.  갤러리 표시 상태
+    5.  갤러리 제목
+    6.  갤러리 그리드
+    7.  갤러리 썸네일
+    8.  모달
+    9.  모달 내부 레이아웃
+    10. 캐릭터 이름 링크
+    11. 캐릭터 페이지
+    12. 캐릭터 섹션
+    13. 반응형
+
+
+[13] aria-modal="true" 속성 삭제
+------------------------------------------------------
+  대상: 모든 .story-modal 요소 (6개)
+
+  이유:
+  - aria-modal은 role="dialog"와 함께 사용해야 의미가 있음
+  - 현재 <div>로 구현된 모달에서는 역할 없이 속성만 존재
+  - aria-label은 유지 (스크린리더에 유용)
+
+
+======================================================
+  요약
+  - HTML: 속성 삭제 8개 / 명칭 변경 1개 / 주석 정리 2개
+  - CSS:  삭제된 규칙 7개 / 통합된 규칙 4개 / 신규 3개
+  - 총 CSS 규칙 수: 47개 → 40개 (7개 감소)
+======================================================
