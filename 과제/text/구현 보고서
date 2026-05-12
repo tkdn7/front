@@ -1,1 +1,71 @@
-1. 모달 팝업창 사진 띄우는 방식이 마음에 들지 않아 수정
+## 프로젝트 개요
+
+---
+
+## 시멘틱 마크업 설계
+
+---
+
+## 레이아웃 전략
+
+---
+
+## 주요 기능 코드 분석
+
+---
+
+## 자기 평가 및 어려웟던 점
+
+---
+
+- **구현 중 가장 해결하기 힘들었던 레이아웃 버그:**
+모달(Modal) 창을 구현할 때, 닫기(`&times;`) 버튼이 화면에 나타나지 않거나 클릭할 수 없는 위치로 밀려나는 렌더링 버그가 발생했습니다.
+- **원인 분석:**
+초기에는 모달 전체를 감싸는 태그로 `<dialog>`를 사용하고, 내부의 닫기 버튼에 `position: fixed`를 적용하여 우측 상단(`top: 20px; right: 28px;`)에 고정하려 했습니다. 하지만 `<dialog>` 태그가 가지는 브라우저의 기본 스타일 속성과 CSS의 `position: fixed`가 중첩되면서 기준점을 잃고 뷰포트 밖으로 벗어나거나 가려지는 현상이 발생했습니다. 또한 데스크톱 환경에서는 모달 본문(`.modal-inner`)과 버튼의 거리가 너무 멀어 UI/UX 측면에서도 좋지 않았습니다.
+- **해결 과정:**
+브라우저 기본 스타일의 간섭을 줄이기 위해 `<dialog>` 태그를 일반 `<div>` 태그로 변경하여 모달 구조를 재설계했습니다. 닫기 버튼이 브라우저 전체 화면이 아닌 '모달 콘텐츠 박스'를 기준으로 배치되도록, 부모 요소인 `.modal-inner`에 `position: relative`를 부여했습니다. 이후 닫기 버튼을 `.modal-inner` 내부로 이동시키고 `position: absolute`를 적용하여 뷰포트 크기가 변하더라도 항상 모달 박스 우측 상단에 안정적으로 위치하도록 수정했습니다.
+
+- HTML 수정 사항
+
+브라우저 기본 스타일과 충돌하는 `<dialog>` 대신 일반 `<div>` 태그를 사용하고, 닫기 버튼(`.modal-close`)을 모달 콘텐츠 박스(`.modal-inner`) 안쪽으로 이동시킵니다.
+
+- CSS 수정사항
+
+이동한 닫기 버튼이 `.modal-inner` 안에서 우측 상단에 고정되도록 CSS 속성을 수정합니다.
+
+```css
+/* ── Modal 내부 Flexbox 레이아웃 ── */
+.modal-inner {
+   display: flex;
+   flex-direction: row;
+   align-items: flex-start;
+   gap: 32px;
+   width: min(90vw, 1100px);
+   max-height: 85vh;
+   padding: 48px 40px;
+   box-sizing: border-box;
+   background: var(--bg-card);
+   border: 1px solid var(--red-point);
+   border-radius: 8px;
+   overflow-y: auto;
+   + position: relative; -> 내부 닫기 버튼의 절대적 배치 기준점이 됨
+}
+
+/* X 버튼 */
+.modal-close {
+   position: fixed; -> absolute로 변경
+   top: 20px; -> 16px, 모달 박스 내부에서의 여백 조정
+   right: 28px; -> 24px
+   font-size: 2.4rem;
+   line-height: 1;
+   text-decoration: none;
+   cursor: pointer;
+   color: var(--gray-fog);
+   z-index: 10001;
+   transition: color 0.2s ease;
+}
+```
+
+## 웹사이트 구현 결과
+
+---
