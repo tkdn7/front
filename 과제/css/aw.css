@@ -361,18 +361,84 @@ body:has(.char-section:target) .characters-page {
 
 /* ── 13. 반응형 ── */
 @media (max-width: 640px) {
-   .modal-inner {
-      flex-direction: column;
+
+   /* ── 모달: 화면 상단으로 이동 ── */
+   .story-modal:target {
+      justify-content: flex-start;
+      padding-top: 24px;
+      box-sizing: border-box;
    }
 
+   /* ── 모달 박스: 세로 배치 + 화면 높이 거의 가득 ── */
+   .modal-inner {
+      flex-direction: column;
+      width: 92vw;
+      height: calc(100vh - 48px);
+      max-height: none;
+   }
+
+   /* ── 이미지 영역: 높이 축소해 텍스트 공간 확보 ── */
    .modal-image-area {
       flex: none;
       width: 100%;
-      height: 220px;
+      height: 180px;
    }
 
+   /* ── 텍스트 영역: 남는 공간 전부 차지 + 스크롤 ── */
    .modal-text-area {
+      flex: 1 1 auto;
+      min-height: 0;
       max-height: none;
-      padding: 28px 20px;
+      padding: 20px 20px 24px;
+      overflow-y: auto;
+   }
+
+   /* ── 갤러리 컨테이너: 좌우 패딩 축소 ── */
+   #gallery:target,
+   body:has(.story-modal:target) #gallery {
+      padding: 16px 16px 24px;
+   }
+
+   /* ── 갤러리 제목 크기 축소 ── */
+   #gallery-title {
+      font-size: 2rem;
+   }
+
+   /* ── 갤러리 그리드: 3열 → 1열, 카드 사이 여백 확보 ── */
+   .gallery-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+   }
+
+   /* ── 터치 환경: hover 블러 효과 비활성화 ── */
+   .gallery-grid:hover .gallery-item {
+      opacity: 1;
+      filter: none;
+   }
+
+   .gallery-grid:hover .gallery-item:hover {
+      opacity: 1;
+      filter: none;
+   }
+
+   /* ── 캐릭터 페이지 상단 네비 컴팩트화 ── */
+   .chars-back {
+      padding: 12px 16px;
+   }
+
+   /* ── 패럴랙스: 높이 축소 + iOS 호환 ── */
+   .char-parallax {
+      height: 45vh;
+      background-attachment: scroll;
+   }
+
+   /* ── 캐릭터 설명 좌우 패딩 축소 ── */
+   .char-info {
+      padding: 40px 20px;
+   }
+
+   /* ── 캐릭터 이름 줄바꿈 방지 ── */
+   .char-name {
+      font-size: 2.2rem;
    }
 }
